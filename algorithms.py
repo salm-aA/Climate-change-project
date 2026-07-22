@@ -1,73 +1,72 @@
-"""Searching and sorting algorithms used by the cinema application."""
+"""Searching and sorting algorithms for the cinema application."""
 
 
-def merge_sort_movies(movies, field):
-    """Return a new movie list sorted by field using recursive merge sort."""
-    if len(movies) <= 1:
-        return movies[:]
+def merge_sort(movie_list, field):
+    """Sort movies using a recursive merge sort algorithm."""
+    # A list with zero or one item is already sorted.
+    if len(movie_list) <= 1:
+        return movie_list[:]
 
-    middle = len(movies) // 2
-    left = merge_sort_movies(movies[:middle], field)
-    right = merge_sort_movies(movies[middle:], field)
-    return _merge(left, right, field)
+    middle = len(movie_list) // 2
+    left_half = merge_sort(movie_list[:middle], field)
+    right_half = merge_sort(movie_list[middle:], field)
 
+    sorted_list = []
+    left_position = 0
+    right_position = 0
 
-def _merge(left, right, field):
-    """Merge two sorted movie lists."""
-    result = []
-    left_index = 0
-    right_index = 0
+    while left_position < len(left_half) and right_position < len(right_half):
+        left_value = left_half[left_position][field]
+        right_value = right_half[right_position][field]
 
-    while left_index < len(left) and right_index < len(right):
-        left_value = left[left_index][field]
-        right_value = right[right_index][field]
+        # Lowercase text so capital letters do not affect the order.
         if isinstance(left_value, str):
             left_value = left_value.lower()
             right_value = right_value.lower()
 
         if left_value <= right_value:
-            result.append(left[left_index])
-            left_index += 1
+            sorted_list.append(left_half[left_position])
+            left_position += 1
         else:
-            result.append(right[right_index])
-            right_index += 1
+            sorted_list.append(right_half[right_position])
+            right_position += 1
 
-    result.extend(left[left_index:])
-    result.extend(right[right_index:])
-    return result
+    sorted_list.extend(left_half[left_position:])
+    sorted_list.extend(right_half[right_position:])
+    return sorted_list
 
 
-def recursive_binary_search(movies, title, low=0, high=None):
-    """Find an exact title in a title-sorted list using recursive binary search."""
-    if high is None:
-        high = len(movies) - 1
+def binary_search(movie_list, title, low, high):
+    """Recursively search a title-sorted movie list for an exact title."""
     if low > high:
         return None
 
     middle = (low + high) // 2
-    middle_title = movies[middle]["title"].lower()
-    wanted_title = title.strip().lower()
+    middle_title = movie_list[middle]["title"].lower()
+    wanted_title = title.lower()
 
     if middle_title == wanted_title:
-        return movies[middle]
+        return movie_list[middle]
     if wanted_title < middle_title:
-        return recursive_binary_search(movies, title, low, middle - 1)
-    return recursive_binary_search(movies, title, middle + 1, high)
+        return binary_search(movie_list, title, low, middle - 1)
+    return binary_search(movie_list, title, middle + 1, high)
 
 
-def search_movies(movies, search_text):
-    """Search exact titles first, then return partial title or genre matches."""
-    query = search_text.strip().lower()
-    if not query:
-        return movies[:]
+def search_movies(movie_list, search_text):
+    """Search for an exact title, partial title, or genre."""
+    search_text = search_text.strip().lower()
+    if search_text == "":
+        return movie_list[:]
 
-    title_sorted = merge_sort_movies(movies, "title")
-    exact_match = recursive_binary_search(title_sorted, query)
-    if exact_match:
-        return [exact_match]
+    title_sorted = merge_sort(movie_list, "title")
+    exact_movie = binary_search(title_sorted, search_text, 0, len(title_sorted) - 1)
+    if exact_movie is not None:
+        return [exact_movie]
 
-    matches = []
-    for movie in movies:
-        if query in movie["title"].lower() or query in movie["genre"].lower():
-            matches.append(movie)
-    return matches
+    matching_movies = []
+    for movie in movie_list:
+        title_match = search_text in movie["title"].lower()
+        genre_match = search_text in movie["genre"].lower()
+        if title_match or genre_match:
+            matching_movies.append(movie)
+    return matching_movies

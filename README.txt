@@ -4,84 +4,64 @@ SILVER SCREEN CINEMA BOOKING SYSTEM
 Student name: [ENTER YOUR FULL NAME]
 P-number: [ENTER YOUR P-NUMBER]
 Course code: IY499
-Online repository: https://github.com/salm-aA/Climate-change-project
+Repository: https://github.com/salm-aA/Climate-change-project
 
-DESCRIPTION
------------
+PROGRAM DESCRIPTION
+-------------------
 Silver Screen Cinema is a Python desktop application for browsing films and
-booking cinema tickets. The Movies and Booking screen displays each film's
-genre, audience rating, duration, ticket price and available showtimes. A user
-can search by title or genre and sort the results by title, genre, rating or
-price. After selecting a film, the user enters their name, chooses a showtime
-and reserves between one and ten tickets. The program checks the remaining
-capacity, calculates the total price and creates a unique booking reference.
+booking cinema tickets. The Movies tab displays the title, genre, rating,
+duration and price of each film. A customer can search by title or genre and
+sort the results by title, genre, rating or price. After selecting a film, the
+customer chooses a showtime, enters their name and books between one and ten
+tickets. The program checks the number of seats available, calculates the total
+price and creates a booking reference.
 
-The Manage Bookings screen displays all saved reservations and allows a user
-to cancel one. Cancelling restores the seats to the relevant showing. Movie,
-showtime and booking information is stored in JSON files, so changes remain
-available after the application closes. The project demonstrates functions,
-nested lists and dictionaries, file input/output, a recursive binary search,
-recursive merge sort, a Tkinter interface and error handling for invalid input,
-missing records, unavailable seats and damaged files.
+The Bookings tab displays saved reservations and allows a selected booking to
+be cancelled. Cancelling returns the tickets to the available seat total. Movie
+and booking information is read from and written to JSON files, so bookings are
+still available after closing and reopening the application. The program uses
+functions, loops, if statements, lists, dictionaries, arithmetic, recursion,
+merge sort, binary search, file input/output, a Tkinter user interface and error
+handling for invalid input or damaged files.
 
 PACKAGES AND LIBRARIES
 ----------------------
-No external packages are required. The program uses Python standard-library
-modules: tkinter, json, pathlib, tempfile, os, datetime and uuid.
+No external packages are required. The program uses these Python standard
+libraries: tkinter, json and os.
 
 INSTALLATION
 ------------
 1. Install Python 3.10 or later from https://www.python.org/downloads/
-2. Download and unzip this project.
-3. Open a terminal or command prompt inside the cinema_booking_app folder.
-4. No pip installation is needed because requirements.txt has no dependencies.
+2. Download and unzip the project.
+3. Open a terminal or command prompt in the project folder.
+4. No pip installation is required because the program has no external
+   packages.
 
-RUNNING THE PROGRAM
--------------------
+HOW TO RUN THE PROGRAM
+----------------------
 Windows:
     python main.py
 
 macOS or Linux:
     python3 main.py
 
-Select a movie row, choose a showtime, enter a customer name and ticket count,
-then press Confirm booking. Use the Manage bookings tab to view or cancel saved
-bookings.
+HOW TO USE THE PROGRAM
+----------------------
+1. Search for a title or genre, or leave the search box empty to see all films.
+2. Select a sorting option if required.
+3. Select a movie from the table.
+4. Enter a customer name, choose a showtime and enter the ticket quantity.
+5. Select Confirm booking. The booking is saved in data/bookings.json.
+6. Open the Bookings tab to view or cancel a reservation.
 
-RUNNING THE TESTS
------------------
-From the cinema_booking_app folder, run:
-
-Windows:
-    python -m unittest discover -s tests -v
-
-macOS or Linux:
-    python3 -m unittest discover -s tests -v
-
-FILES
------
-main.py              Starts the application.
-ui.py                Creates the graphical user interface.
-cinema.py            Contains booking and cinema business logic.
-algorithms.py         Contains searching and sorting algorithms.
-validation.py         Checks customer names and ticket counts.
-storage.py            Reads and safely writes JSON data.
-data/movies.json      Stores films, showtimes and seat availability.
-data/bookings.json    Stores confirmed bookings.
-tests/test_cinema.py  Tests important functionality and error cases.
-
-GITHUB / VERSION CONTROL
-------------------------
-Create your own online repository and make small commits as you develop and
-understand the project. Examples of clear commit messages are:
-    Add movie JSON data and file loading
-    Implement recursive searching and sorting
-    Add ticket booking validation
-    Build Tkinter movie browser
-    Add booking cancellation and automated tests
-    Complete README instructions
-
-Do not upload passwords, personal data or your Python cache folders.
+PROJECT FILES
+-------------
+main.py             User interface, validation, calculations and file access.
+algorithms.py        Recursive searching and sorting algorithms.
+data/movies.json     Movie, showtime, price and seat information.
+data/bookings.json   Saved customer bookings.
+requirements.txt     Confirms that no external packages are needed.
+README.txt           Full project information required for submission.
 
 DECLARATION OF OWN WORK
 -----------------------
@@ -90,5 +70,6 @@ I confirm that this assignment is my own work.
 Where I have referred to online sources, I have provided comments detailing the
 reference and included a link to the source.
 
-Before submission, replace every [ENTER ...] placeholder above and make sure the
-README accurately describes the version you submit.
+IMPORTANT: Replace the name and P-number placeholders before submission. Only
+include the declaration if it is accurate under your university's rules on AI
+and other assistance.
