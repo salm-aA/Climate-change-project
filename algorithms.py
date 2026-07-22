@@ -1,8 +1,8 @@
-"""Simple searching and sorting algorithms for the cinema program."""
+# Simple searching and sorting algorithms for the cinema program
 
 
 def bubble_sort(movie_list, field):
-    """Return movies sorted by a chosen field using bubble sort."""
+    # Return movies sorted by a chosen field using bubble sort
     sorted_movies = movie_list.copy()
 
     for pass_number in range(len(sorted_movies) - 1):
@@ -23,7 +23,7 @@ def bubble_sort(movie_list, field):
 
 
 def binary_search(movie_list, title, low, high):
-    """Use recursion to search a title-sorted movie list."""
+    # Use recursion to search a title-sorted movie list
     if low > high:
         return None
 
@@ -39,7 +39,7 @@ def binary_search(movie_list, title, low, high):
 
 
 def search_movies(movie_list, search_text):
-    """Search by exact title, partial title or genre."""
+    # Search by exact title, partial title or genre
     search_text = search_text.strip().lower()
     title_order = bubble_sort(movie_list, "title")
 
