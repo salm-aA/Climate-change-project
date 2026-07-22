@@ -1,0 +1,62 @@
+[
+  {
+    "id": "MOV001",
+    "title": "Beyond the Horizon",
+    "genre": "Adventure",
+    "rating": 8.2,
+    "duration": 128,
+    "price": 11.5,
+    "showtimes": [
+      {"time": "2026-07-24 14:00", "capacity": 50, "booked": 12},
+      {"time": "2026-07-24 19:30", "capacity": 50, "booked": 31}
+    ]
+  },
+  {
+    "id": "MOV002",
+    "title": "Midnight Mystery",
+    "genre": "Thriller",
+    "rating": 7.7,
+    "duration": 110,
+    "price": 10.0,
+    "showtimes": [
+      {"time": "2026-07-24 16:15", "capacity": 40, "booked": 8},
+      {"time": "2026-07-24 21:00", "capacity": 40, "booked": 24}
+    ]
+  },
+  {
+    "id": "MOV003",
+    "title": "Laughing Matters",
+    "genre": "Comedy",
+    "rating": 7.4,
+    "duration": 96,
+    "price": 9.5,
+    "showtimes": [
+      {"time": "2026-07-25 13:30", "capacity": 60, "booked": 14},
+      {"time": "2026-07-25 18:00", "capacity": 60, "booked": 19}
+    ]
+  },
+  {
+    "id": "MOV004",
+    "title": "Starlight Station",
+    "genre": "Science Fiction",
+    "rating": 8.8,
+    "duration": 142,
+    "price": 13.0,
+    "showtimes": [
+      {"time": "2026-07-25 15:00", "capacity": 45, "booked": 39},
+      {"time": "2026-07-25 20:15", "capacity": 45, "booked": 17}
+    ]
+  },
+  {
+    "id": "MOV005",
+    "title": "The Little Lantern",
+    "genre": "Family",
+    "rating": 8.0,
+    "duration": 88,
+    "price": 8.5,
+    "showtimes": [
+      {"time": "2026-07-26 11:00", "capacity": 55, "booked": 21},
+      {"time": "2026-07-26 14:30", "capacity": 55, "booked": 10}
+    ]
+  }
+]
