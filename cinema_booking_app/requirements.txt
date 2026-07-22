@@ -1,1 +1,0 @@
-# No external packages are required. Tkinter and JSON are part of Python.
