@@ -8,26 +8,25 @@ Repository: https://github.com/salm-aA/Climate-change-project
 
 PROGRAM DESCRIPTION
 -------------------
-Silver Screen Cinema is a Python desktop application for browsing films and
-booking cinema tickets. The Movies tab displays the title, genre, rating,
-duration and price of each film. A customer can search by title or genre and
-sort the results by title, genre, rating or price. After selecting a film, the
-customer chooses a showtime, enters their name and books between one and ten
-tickets. The program checks the number of seats available, calculates the total
-price and creates a booking reference.
+Silver Screen Cinema is a Python menu-based application for browsing films and
+booking cinema tickets. The main menu allows a customer to view every movie,
+search by title or genre and sort the results by title, rating or price. To make
+a booking, the customer selects a numbered movie and showtime, enters their
+name and chooses between one and ten tickets. The program checks the number of
+seats available, calculates the total price and creates a booking reference.
 
-The Bookings tab displays saved reservations and allows a selected booking to
-be cancelled. Cancelling returns the tickets to the available seat total. Movie
-and booking information is read from and written to JSON files, so bookings are
-still available after closing and reopening the application. The program uses
+The customer can also view saved bookings or cancel one using its reference.
+Cancelling returns the tickets to the available seat total. Movie and booking
+information is read from and written to JSON files, so bookings are still
+available after closing and reopening the application. The program uses
 functions, loops, if statements, lists, dictionaries, arithmetic, recursion,
-merge sort, binary search, file input/output, a Tkinter user interface and error
-handling for invalid input or damaged files.
+bubble sort, binary search, file input/output, a command-line user interface
+and error handling for invalid input or damaged files.
 
 PACKAGES AND LIBRARIES
 ----------------------
 No external packages are required. The program uses these Python standard
-libraries: tkinter, json and os.
+libraries: json and os.
 
 INSTALLATION
 ------------
@@ -47,17 +46,17 @@ macOS or Linux:
 
 HOW TO USE THE PROGRAM
 ----------------------
-1. Search for a title or genre, or leave the search box empty to see all films.
-2. Select a sorting option if required.
-3. Select a movie from the table.
-4. Enter a customer name, choose a showtime and enter the ticket quantity.
-5. Select Confirm booking. The booking is saved in data/bookings.json.
-6. Open the Bookings tab to view or cancel a reservation.
+1. Enter a number from 1 to 7 at the main menu.
+2. Use option 1 to view all films.
+3. Use option 2 to search by title or genre.
+4. Use option 3 to sort the films.
+5. Use option 4 to choose a film and book tickets.
+6. Use options 5 and 6 to view or cancel a reservation.
 
 PROJECT FILES
 -------------
-main.py             User interface, validation, calculations and file access.
-algorithms.py        Recursive searching and sorting algorithms.
+main.py             Menu, booking, validation, calculations and file access.
+algorithms.py        Bubble sort and recursive binary search algorithms.
 data/movies.json     Movie, showtime, price and seat information.
 data/bookings.json   Saved customer bookings.
 requirements.txt     Confirms that no external packages are needed.
