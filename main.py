@@ -1,4 +1,4 @@
-"""A simple menu-based cinema ticket booking program."""
+# A simple menu-based cinema ticket booking program
 
 import json
 import os
@@ -12,7 +12,7 @@ BOOKINGS_FILE = os.path.join(FOLDER, "data", "bookings.json")
 
 
 def load_file(filename):
-    """Load a list from a JSON file."""
+    # Load a list from a JSON file
     try:
         with open(filename, "r", encoding="utf-8") as file:
             return json.load(file)
@@ -26,7 +26,7 @@ def load_file(filename):
 
 
 def save_file(filename, data):
-    """Save a list to a JSON file."""
+    # Save a list to a JSON file
     try:
         with open(filename, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=2)
@@ -37,7 +37,7 @@ def save_file(filename, data):
 
 
 def display_movies(movie_list):
-    """Print a numbered list of movies."""
+    # Print a numbered list of movies
     if len(movie_list) == 0:
         print("\nNo movies were found.")
         return
@@ -53,12 +53,12 @@ def display_movies(movie_list):
 
 
 def view_all_movies(movies):
-    """Display every movie."""
+    # Display every movie
     display_movies(movies)
 
 
 def search_for_movie(movies):
-    """Ask for search text and display matching movies."""
+    # Ask for search text and display matching movies
     search_text = input("Enter a title or genre: ").strip()
     if search_text == "":
         print("Search text cannot be empty.")
@@ -68,7 +68,7 @@ def search_for_movie(movies):
 
 
 def sort_movies(movies):
-    """Sort and display movies using bubble sort."""
+    # Sort and display movies using bubble sort
     print("\n1. Sort by title")
     print("2. Sort by rating")
     print("3. Sort by price")
@@ -84,7 +84,7 @@ def sort_movies(movies):
 
 
 def choose_number(question, minimum, maximum):
-    """Keep asking until the user enters a valid whole number."""
+    # Keep asking until the user enters a valid whole number
     while True:
         try:
             number = int(input(question))
@@ -96,7 +96,7 @@ def choose_number(question, minimum, maximum):
 
 
 def next_booking_id(bookings):
-    """Create a simple booking reference."""
+    # Create a simple booking reference
     highest_number = 0
     for booking in bookings:
         try:
@@ -109,7 +109,7 @@ def next_booking_id(bookings):
 
 
 def book_tickets(movies, bookings):
-    """Create and save a cinema booking."""
+    # Create and save a cinema booking
     display_movies(movies)
     movie_number = choose_number("Choose a movie number: ", 1, len(movies))
     movie = movies[movie_number - 1]
@@ -166,7 +166,7 @@ def book_tickets(movies, bookings):
 
 
 def display_bookings(bookings):
-    """Print all saved bookings."""
+    # Print all saved bookings
     if len(bookings) == 0:
         print("\nThere are no saved bookings.")
         return
@@ -183,7 +183,7 @@ def display_bookings(bookings):
 
 
 def cancel_booking(movies, bookings):
-    """Cancel a booking and return its seats."""
+    # Cancel a booking and return its seats
     display_bookings(bookings)
     if len(bookings) == 0:
         return
@@ -212,7 +212,7 @@ def cancel_booking(movies, bookings):
 
 
 def show_menu():
-    """Display the main menu."""
+    # Display the main menu
     print("\nSILVER SCREEN CINEMA")
     print("1. View all movies")
     print("2. Search for a movie")
@@ -224,7 +224,7 @@ def show_menu():
 
 
 def main():
-    """Load the files and run the menu until the user exits."""
+    # Load the files and run the menu until the user exits
     movies = load_file(MOVIES_FILE)
     bookings = load_file(BOOKINGS_FILE)
     if movies is None or bookings is None:
